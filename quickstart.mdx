@@ -1,0 +1,154 @@
+---
+title: Getting Started with AceMQ Services
+description: Quickly set up your engagement with AceMQ by requesting support, licensing, or consulting for your message queuing needs.
+---
+
+## Prerequisites
+
+<Callout kind="info">
+Before starting, ensure you have:
+- Details about your current message queuing setup (RabbitMQ, Redis, Kafka versions)
+- Your production environment specs (VMware, containers, cloud)
+- Business requirements for support or licensing
+</Callout>
+
+## Make Initial Contact
+
+Begin your AceMQ engagement by reaching out through the preferred channel. AceMQ specializes in RabbitMQ commercial licensing, support, and consulting for message queuing solutions.
+
+<Steps>
+  <Step title="Visit Contact Page" icon="external-link">
+    Navigate to the [AceMQ contact page](https://acemq.com/contact-us/) and fill out the form with your details.
+  </Step>
+
+  <Step title="Provide Environment Details" icon="database">
+    Describe your setup:
+    
+````markdown
+```yaml
+message_broker: RabbitMQ 3.12
+environment: Kubernetes cluster
+nodes: 5
+traffic: >10k messages/sec
+```
+````
+    
+    This helps AceMQ assess your needs quickly.
+  </Step>
+
+  <Step title="Submit Request" icon="send">
+    Click submit. You receive a confirmation email within minutes.
+  </Step>
+</Steps>
+
+## Request a Free MQ Assessment
+
+AceMQ offers free assessments for your message queuing environment. Choose the broker type.
+
+<Tabs>
+  <Tab title="RabbitMQ" icon="rabbit">
+    Request a RabbitMQ-specific review.
+    
+    ```bash
+    curl -X POST https://acemq.com/api/assess \
+      -H "Content-Type: application/json" \
+      -d '{
+        "broker": "RabbitMQ",
+        "version": "3.12",
+        "issues": "High latency in queues"
+      }'
+    ```
+  </Tab>
+  
+  <Tab title="Redis" icon="database">
+    Get insights on Redis streaming performance.
+    
+    ```bash
+    curl -X POST https://acemq.com/api/assess \
+      -H "Content-Type: application/json" \
+      -d '{
+        "broker": "Redis",
+        "version": "7.0",
+        "issues": "Pub/sub scaling"
+      }'
+    ```
+  </Tab>
+  
+  <Tab title="Kafka" icon="trending-up">
+    Evaluate Kafka cluster health.
+    
+    ```bash
+    curl -X POST https://acemq.com/api/assess \
+      -H "Content-Type: application/json" \
+      -d '{
+        "broker": "Kafka",
+        "version": "3.5",
+        "issues": "Partition rebalancing"
+      }'
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+Expect a detailed report within 48 hours, including optimization recommendations.
+</Callout>
+
+## Obtain RabbitMQ Commercial Licensing
+
+For production RabbitMQ deployments, secure commercial licensing.
+
+<CodeGroup tabs="cURL,Python">
+```bash
+curl -X POST https://acemq.com/licensing/request \
+  -H "Content-Type: application/json" \
+  -d '{
+    "company": "Your Company",
+    "nodes": 10,
+    "support_level": "enterprise"
+  }'
+```
+
+```python
+import requests
+
+response = requests.post(
+    "https://acemq.com/licensing/request",
+    json={
+        "company": "Your Company",
+        "nodes": 10,
+        "support_level": "enterprise"
+    }
+)
+print(response.json())
+```
+</CodeGroup>
+
+## Schedule a Consultation
+
+Ready for expert advice? Use these options.
+
+<Columns cols={2}>
+  <Card title="MQ Services Consultation" icon="settings" href="https://acemq.com/mq-services/">
+    Discuss architecture, deployment, and integration.
+  </Card>
+  
+  <Card title="Support Planning" icon="shield" href="https://acemq.com/support/">
+    Plan 24/7 support for your brokers.
+  </Card>
+  
+  <Card title="VMware Licensing" icon="cpu" href="https://acemq.com/vmware-licensing/">
+    Licensing for virtualized environments.
+  </Card>
+  
+  <Card title="Customer Stories" icon="users" href="https://acemq.com/stories/">
+    See real-world success cases.
+  </Card>
+</Columns>
+
+## Next Steps
+
+<Expandable title="Advanced Topics" default-open="false">
+Explore containerization services or attend RabbitMQ Q&A events via [AceMQ Events](https://acemq.com/events/rabbitmq-qa-event/).
+</Expandable>
+
+This quickstart gets you engaged with AceMQ services in under 15 minutes. Customize your request based on RabbitMQ, Redis, or Kafka needs for tailored support.

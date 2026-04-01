@@ -1,0 +1,26 @@
+---
+title: RabbitMQ Quickstart Guide
+description: Set up and test RabbitMQ with AceMQ.
+---
+
+## Overview
+
+Basic messaging in minutes.
+
+<Steps>
+  <Step title="Start RabbitMQ">
+    ````bash
+    sudo systemctl start rabbitmq-server
+    ````
+  </Step>
+  <Step title="Send a message">
+    ````bash
+    rabbitmqadmin publish exchange=amq.default routing_key=test payload="Hello AceMQ!"
+    ````
+  </Step>
+  <Step title="Read the message">
+    ````bash
+    rabbitmqadmin get queue=test
+    ````
+  </Step>
+</Steps>

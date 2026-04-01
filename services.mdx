@@ -1,0 +1,146 @@
+---
+title: AceMQ Services Overview
+description: Explore AceMQ's comprehensive services for RabbitMQ, Redis, Kafka, and other MQ technologies to enhance your systems' reliability and performance.
+---
+
+## Overview
+
+AceMQ provides expert services to optimize your message queuing infrastructure. You gain access to specialized support, licensing, consulting, and deployment solutions tailored for RabbitMQ, Redis, Kafka, and beyond. These services ensure high availability, scalability, and seamless integration in your environment.
+
+<Columns cols={2}>
+  <Card title="MQ Support" icon="shield" href="/support">
+    Proactive maintenance and 24/7 assistance for your brokers.
+  </Card>
+  <Card title="Commercial Licensing" icon="key" href="/licensing">
+    Flexible RabbitMQ licensing options for enterprise needs.
+  </Card>
+  <Card title="Consulting" icon="brain" href="/consulting">
+    Architecture design and integration expertise.
+  </Card>
+  <Card title="Containerization" icon="docker" href="/containerization">
+    Docker and Kubernetes deployments for MQ solutions.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Contact AceMQ to discuss how these services fit your specific use case.
+</Callout>
+
+## MQ Support and Maintenance Options
+
+AceMQ offers tiered support plans to keep your message brokers running smoothly. Choose from basic monitoring to premium 24/7 response times.
+
+<Tabs>
+  <Tab title="Standard" icon="check">
+    Ideal for development and staging environments.
+
+    - 8x5 business hours support
+    - Email and ticket response within 4 hours
+    - Monthly health checks
+
+  </Tab>
+  <Tab title="Premium" icon="star">
+    For production systems requiring high availability.
+
+    - 24/7 phone and ticket support
+    - Response within 1 hour for critical issues
+    - Dedicated account manager
+
+  </Tab>
+</Tabs>
+
+## Commercial Licensing for RabbitMQ
+
+Secure enterprise-grade RabbitMQ with AceMQ's commercial licenses. You avoid open-source limitations while gaining official support.
+
+<Steps>
+  <Step title="Assess Needs" icon="search">
+    Evaluate your throughput, nodes, and features.
+  </Step>
+  <Step title="Request Quote" icon="dollar-sign">
+    Submit requirements via the licensing form.
+  </Step>
+  <Step title="Deploy License" icon="download">
+    Apply the license key to your cluster.
+  </Step>
+</Steps>
+
+Example license application in a Dockerized RabbitMQ:
+
+<CodeGroup tabs="Docker Compose,Docker Run">
+  ```yaml
+  version: '3.8'
+  services:
+    rabbitmq:
+      image: rabbitmq:3-management
+      environment:
+        RABBITMQ_LICENSE_KEY: 'your-commercial-license-key-here'
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+  ```
+  ```bash
+  docker run -d \
+    --name rabbitmq \
+    -p 5672:5672 \
+    -p 15672:15672 \
+    -e RABBITMQ_LICENSE_KEY='your-commercial-license-key-here' \
+    rabbitmq:3-management
+  ```
+</CodeGroup>
+
+## Consulting on Architecture and Integration
+
+AceMQ consultants help you design scalable MQ architectures. You receive blueprints for hybrid cloud setups, failover strategies, and tool integrations.
+
+<Expandable title="Common Integration Scenarios" default-open="true">
+  Integrate RabbitMQ with your microservices:
+
+  ```javascript
+  const amqp = require('amqplib');
+
+  async function publishMessage() {
+    const connection = await amqp.connect('amqp://guest:guest@localhost:5672');
+    const channel = await connection.createChannel();
+    await channel.assertQueue('orders');
+    channel.sendToQueue('orders', Buffer.from('Order processed'));
+    console.log('Message sent');
+  }
+  publishMessage();
+  ```
+
+  For Redis streams:
+
+  ```python
+  import redis
+
+  r = redis.Redis(host='localhost', port=6379, db=0)
+  r.xadd('events', {'type': 'user_login', 'user_id': '123'})
+  print('Event published to Redis stream')
+  ```
+</Expandable>
+
+## Containerization and Deployment Services
+
+AceMQ specializes in containerizing MQ brokers for Kubernetes and Docker Swarm. You deploy resilient clusters with zero downtime.
+
+<Callout kind="tip">
+  Start with a proof-of-concept deployment to test performance.
+</Callout>
+
+```mermaid
+graph TD
+    A[Developer] --> B[Docker Build]
+    B --> C[Kubernetes Deploy]
+    C --> D[Load Balancer]
+    D --> E[Production Traffic]
+```
+
+<Columns cols={2}>
+  <Card title="Next Steps" icon="arrow-right" horizontal>
+    Schedule a free consultation to begin.
+  </Card>
+  <Card title="Resources" icon="book-open" horizontal>
+    Review case studies and best practices.
+  </Card>
+</Columns>

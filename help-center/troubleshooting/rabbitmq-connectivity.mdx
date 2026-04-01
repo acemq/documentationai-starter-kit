@@ -1,0 +1,25 @@
+---
+title: RabbitMQ Connectivity Issues
+description: Resolve connection problems to your RabbitMQ cluster.
+---
+
+## Symptoms
+
+- Can't connect to RabbitMQ instance
+- Timeout or connection refused errors
+
+## Quick Fix
+
+<Steps>
+  <Step title="Check RabbitMQ status">
+    ````bash
+    sudo systemctl status rabbitmq-server
+    ````
+  </Step>
+  <Step title="Verify firewall rules">
+    Ensure ports 5672 and 15672 are open.
+  </Step>
+  <Step title="Test credentials">
+    Use `rabbitmqctl authenticate_user` to verify login.
+  </Step>
+</Steps>
